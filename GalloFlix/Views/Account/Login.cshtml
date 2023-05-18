@@ -4,24 +4,29 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Login</h1>
     <h2>@Model.ReturnUrl</h2>
 </div>
-
-
-<form>
+@* TagHelper - Auxiliar de Tag *@
+<form method="post" class="col-md-6 offset-md-3">
+    <div asp-validation-summary="All" class="text-danger"></div>
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    <label asp-for="Email" class="form-label"></label>
+    <input asp-for="Email" class="form-control">
+    <span asp-validation-for="Email" class="text-danger"></span>
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <input asp-for="Password" class="form-control">
+    <span asp-validation-for="Password" class="text-danger"></span>
   </div>
   <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    <input asp-for="RememberMe"class="form-check-input">
+    <label asp-for="RememberMe" class="form-check-label"></label>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Entrar</button>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"></partial>
+}

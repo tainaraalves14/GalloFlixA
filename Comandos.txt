@@ -17,3 +17,5 @@ dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 6
 
 
 dotnet ef migrations add criar-banco
+
+div._____nome da classe
