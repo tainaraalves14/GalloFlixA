@@ -14,3 +14,6 @@ dotnet add package Pomelo.EntityFrameworkCore.MySql --version 6.0.2
 
 // Instalando os pacotes do Identity - para Gestão de Usuário
 dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 6.0.16
+
+
+dotnet ef migrations add criar-banco
