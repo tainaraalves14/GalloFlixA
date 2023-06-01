@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GalloFlix.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230518135235_criar-banco")]
+    [Migration("20230518131302_criar-banco")]
     partial class criarbanco
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -174,22 +174,22 @@ namespace GalloFlix.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4b354446-fc4a-40b0-98be-d2ba96d09fd5",
-                            ConcurrencyStamp = "ce12133c-7c69-49eb-974d-224da944b86d",
+                            Id = "a3db6357-13f0-44f4-a1b4-826f866c4f39",
+                            ConcurrencyStamp = "8641eaa3-a512-4d1d-9616-2b8fa9ee95e5",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "2c9b4a58-1301-451e-b826-89267a788f67",
-                            ConcurrencyStamp = "5cdfde28-8448-444f-b048-28310fd61ada",
+                            Id = "d8f86496-0fa4-4e0c-8d10-5260a8dde32a",
+                            ConcurrencyStamp = "6abadac1-a905-4470-be31-43e1fdd087a2",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "0a8936d1-2280-41f8-99dd-634527b5fc1c",
-                            ConcurrencyStamp = "4df467dc-9d87-4ca2-9d5d-9a5ec55eb72c",
+                            Id = "428614b9-85b1-4253-91c5-70ccc9899ffe",
+                            ConcurrencyStamp = "52e2f22e-be2c-4d20-ac53-e425a1d78502",
                             Name = "Usuário",
                             NormalizedName = "USUÁRIO"
                         });
@@ -350,8 +350,8 @@ namespace GalloFlix.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "561e0212-f84c-4b20-bf10-e98e6a75bf2f",
-                            RoleId = "4b354446-fc4a-40b0-98be-d2ba96d09fd5"
+                            UserId = "669a227a-2eb6-41fc-8aca-8aa64b391600",
+                            RoleId = "a3db6357-13f0-44f4-a1b4-826f866c4f39"
                         });
                 });
 
@@ -395,18 +395,18 @@ namespace GalloFlix.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "561e0212-f84c-4b20-bf10-e98e6a75bf2f",
+                            Id = "669a227a-2eb6-41fc-8aca-8aa64b391600",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8fee6e4e-c100-4cbd-80f1-277711670ebb",
+                            ConcurrencyStamp = "6c86f75c-2037-4d7e-aeea-29a7c17a4a79",
                             Email = "mariaeduardabotura@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MARIAEDUARDABOTURA@GMAIL.COM",
                             NormalizedUserName = "DUDAMARIANA",
-                            PasswordHash = "AQAAAAEAACcQAAAAECTxFp8zBo8+bTdlJzl50UmGeZAl0Nz086PTYveh8+qMbn2Z+ufaRV4kyU/Bg4cRsA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBSjJW5BPO21zd8f7yNvHY2iFpF0U/AIFcscEDDw+oQyIG3F5e9Zv3sDL+PB289U2A==",
                             PhoneNumber = "14981395114",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "09a9a2af-3816-47d7-9ce3-56778363da99",
+                            SecurityStamp = "0a295940-8e33-4ba0-abcd-e605dd77b184",
                             TwoFactorEnabled = false,
                             UserName = "dudamariana",
                             DateOfBirth = new DateTime(2005, 6, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
