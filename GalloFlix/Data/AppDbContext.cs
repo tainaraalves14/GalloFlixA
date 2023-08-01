@@ -1,10 +1,9 @@
 using GalloFlix.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
 
 namespace GalloFlix.Data;
-
 public class AppDbContext : IdentityDbContext
 {
     public AppDbContext(DbContextOptions options) : base(options)
@@ -12,63 +11,56 @@ public class AppDbContext : IdentityDbContext
     }
 
     public DbSet<AppUser> AppUsers { get; set; }
-    public DbSet<Genre> Genres { get; set; }
+    public DbSet<Genre> Genres { get; set;}
     public DbSet<Movie> Movies { get; set; }
-    public DbSet<MovieComment> MovieComments { get; set; }
+    public DbSet<MovieComment> MovieComments { get; set; } 
     public DbSet<MovieGenre> MovieGenres { get; set; }
-    public DbSet<MovieRating> MovieRatings { get; set; }
+    public DbSet<MovieRating> MovieRating { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder builder)
+    protected override void OnModelCreating(ModelBuilder builder) //void não tem retorno
     {
         base.OnModelCreating(builder);
-        AppDbSeed seed = new(builder);
+        AppDbSeed appDbSeed = new(builder);
 
         //FluentAPI
-        //Personalizar as tabelas dp Identity
-        builder.Entity<IdentityUser>(
-            iu => { iu.ToTable("Users"); }
-        );
-
-        builder.Entity<IdentityUserClaim<string>>(
-         iu => { iu.ToTable("UserClaims"); }
-     );
-
-        builder.Entity<IdentityUserLogin<string>>(
-           iu => { iu.ToTable("UserLogins"); }
-       );
-
-        builder.Entity<IdentityUserToken<string>>(
-           iu => { iu.ToTable("UserTokens"); }
-       );
-
-        builder.Entity<IdentityRole>(
-         iu => { iu.ToTable("Roles"); }
-     );
-
-        builder.Entity<IdentityRoleClaim<string>>(
-           iu => { iu.ToTable("RoleClaims"); }
-       );
-
-        builder.Entity<IdentityUserRole<string>>(
-           iu => { iu.ToTable("UserRoles"); }
-       );
-
-
+        #region Personalização do Identity
+        builder.Entity<IdentityUser>(b => {
+            b.ToTable("Users");
+        });
+        builder.Entity<IdentityUserClaim<string>>(b => {
+            b.ToTable("UserClaims");
+        });
+        builder.Entity<IdentityUserLogin<string>>(b => {
+            b.ToTable("UserLogins");
+        });
+        builder.Entity<IdentityUserToken<string>>(b => {
+            b.ToTable("UserTokens");
+        });
+        builder.Entity<IdentityRole>(b => {
+            b.ToTable("Roles");
+        });
+        builder.Entity<IdentityRoleClaim<string>>(b => {
+            b.ToTable("RoleClaims");
+        });
+        builder.Entity<IdentityUserRole<string>>(b => {
+            b.ToTable("UserRoles");
+        });
+        #endregion
 
         #region Many To Many - MovieComment
         builder.Entity<MovieComment>()
-             .HasOne(mc => mc.Movie)
-             .WithMany(m => m.Comments)
-             .HasForeignKey(mc => mc.MovieId);
+            .HasOne(mc => mc.Movie)
+            .WithMany(m => m.Comments)
+            .HasForeignKey(mc => mc.MovieId);
 
-             builder.Entity<MovieComment>()
-             .HasOne(mc => mc.User)
-             .WithMany(u => u.Comments)
-             .HasForeignKey(mc => mc.UserId);
+        builder.Entity<MovieComment>()
+            .HasOne(mc => mc.User)
+            .WithMany(u => u.Comments)
+            .HasForeignKey(mc => mc.UserId);
         #endregion
-        
+
         #region Many To Many - MovieGenre
-        //Definição de chave primária composta
+        // Definição de Chave Primária Composta
         builder.Entity<MovieGenre>().HasKey(
             mg => new { mg.MovieId, mg.GenreId }
         );

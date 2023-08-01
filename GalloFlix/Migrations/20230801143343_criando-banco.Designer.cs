@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GalloFlix.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230518131302_criar-banco")]
-    partial class criarbanco
+    [Migration("20230801143343_criando-banco")]
+    partial class criandobanco
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -43,7 +43,7 @@ namespace GalloFlix.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<byte>("AgeReting")
+                    b.Property<byte>("AgeRating")
                         .HasColumnType("tinyint unsigned");
 
                     b.Property<short>("Duration")
@@ -56,17 +56,17 @@ namespace GalloFlix.Migrations
                     b.Property<short>("MovieYear")
                         .HasColumnType("Year");
 
+                    b.Property<string>("OriginalTitle")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
                     b.Property<string>("Synopsis")
                         .IsRequired()
                         .HasMaxLength(8000)
                         .HasColumnType("varchar(8000)");
 
                     b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("TitleOriginal")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
@@ -174,24 +174,24 @@ namespace GalloFlix.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a3db6357-13f0-44f4-a1b4-826f866c4f39",
-                            ConcurrencyStamp = "8641eaa3-a512-4d1d-9616-2b8fa9ee95e5",
+                            Id = "a285ed4f-c9f7-4bb5-a769-a4467d04b140",
+                            ConcurrencyStamp = "47e15880-151e-4ad5-8072-e6d1102101af",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "d8f86496-0fa4-4e0c-8d10-5260a8dde32a",
-                            ConcurrencyStamp = "6abadac1-a905-4470-be31-43e1fdd087a2",
+                            Id = "a5fd25c6-2dde-4f07-a0e1-78baf793a783",
+                            ConcurrencyStamp = "749df378-51e1-4501-99e1-424b03c22fb3",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "428614b9-85b1-4253-91c5-70ccc9899ffe",
-                            ConcurrencyStamp = "52e2f22e-be2c-4d20-ac53-e425a1d78502",
+                            Id = "029fbae3-2779-4942-9468-eca5b7cf9c74",
+                            ConcurrencyStamp = "da0dc8ab-bf64-408b-95e6-a288f436a566",
                             Name = "Usuário",
-                            NormalizedName = "USUÁRIO"
+                            NormalizedName = " USUÁRIO"
                         });
                 });
 
@@ -350,8 +350,8 @@ namespace GalloFlix.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "669a227a-2eb6-41fc-8aca-8aa64b391600",
-                            RoleId = "a3db6357-13f0-44f4-a1b4-826f866c4f39"
+                            UserId = "a5afb544-a5b4-4db4-9d82-f764eb5762c0",
+                            RoleId = "a285ed4f-c9f7-4bb5-a769-a4467d04b140"
                         });
                 });
 
@@ -395,23 +395,23 @@ namespace GalloFlix.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "669a227a-2eb6-41fc-8aca-8aa64b391600",
+                            Id = "a5afb544-a5b4-4db4-9d82-f764eb5762c0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6c86f75c-2037-4d7e-aeea-29a7c17a4a79",
-                            Email = "mariaeduardabotura@gmail.com",
+                            ConcurrencyStamp = "075830be-ad8c-4006-a332-0c197fdeb9e9",
+                            Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "MARIAEDUARDABOTURA@GMAIL.COM",
-                            NormalizedUserName = "DUDAMARIANA",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBSjJW5BPO21zd8f7yNvHY2iFpF0U/AIFcscEDDw+oQyIG3F5e9Zv3sDL+PB289U2A==",
-                            PhoneNumber = "14981395114",
+                            NormalizedEmail = "ADMIN@GMAIL.COM",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBACGjuZqOtSS4lM670gJL5kf/3EYZRJHIbhPbRzqi0CvMnhV+4ywqsVGYzMZR1ieg==",
+                            PhoneNumber = "14912345678",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "0a295940-8e33-4ba0-abcd-e605dd77b184",
+                            SecurityStamp = "026771d7-137a-4c2b-91ec-111383cb0a17",
                             TwoFactorEnabled = false,
-                            UserName = "dudamariana",
-                            DateOfBirth = new DateTime(2005, 6, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Maria Eduarda Botura",
-                            ProfilePicture = "/img/user/avatar.png"
+                            UserName = "Admin",
+                            DateOfBirth = new DateTime(2005, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Seu Nome Completo",
+                            ProfilePicture = "/img/users/avatar.png"
                         });
                 });
 
