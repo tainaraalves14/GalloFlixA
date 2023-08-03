@@ -1906,7 +1906,7 @@ public class HomeController : Controller
 
 -- Para a validação do jquery exibir o css de erro do bootstrap é necessário substituir as classes de erros das funções de validação. Abra os dois arquivos .js da pasta wwwroot\lib\jquery-validation-unobtrusive faça o seguinte:
  - Pressione Ctrl+H para abrir a ferramenta de pesquisa e substituição
- - Digite no caixa de "Find" a classe: is-invalid e na caixa de "Replace" a classe "is-invalid"
+ - Digite no caixa de "Find" a classe: input-validation-error e na caixa de "Replace" a classe "is-invalid"
  - Ao lado da caixa de "Replace" existem dois icones, parando o mouse em cima por um tempo mostra o nome dos botões, clique no segundo "Replace All", para fazer duas alterações no arquivo.
  - Realize esse procedimento nos dois arquivos .js da pasta mencionada.
 
