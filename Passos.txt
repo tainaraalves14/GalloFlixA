@@ -738,6 +738,14 @@ a {
   line-height: 60px;
 }
 
+.swal2-popup {
+  background: var(--bs-body-bg) !important;
+}
+
+.swal2-title, .swal2-content {
+  color: var(--bs-body-color) !important;
+}
+
 
 -- Pasta wwwroot\css criar um arquivo account.css:
 main {
@@ -901,13 +909,13 @@ document.addEventListener('DOMContentLoaded', function() {
 })()
 
 
--- Criar uma pasta com o nome DataTransferObjects e dentro duas classes com os nomes
+-- Criar uma pasta com o nome DataTransferObjects e dentro quatro classes com os nomes
  - ForgetDto
  - LoginDto
  - RegisterDto
- - ResetPassword
+ - ResetPasswordDto
  
-
+ 
 -- Abrir e alterar o arquivo ForgetDto.cs:
 using System.ComponentModel.DataAnnotations;
 
@@ -922,7 +930,7 @@ public class ForgetDto
     public string Email { get; set; }
 }
 
- 
+
 -- Abrir e alterar o arquivo LoginDto.cs:
 using System.ComponentModel.DataAnnotations;
 
@@ -1517,7 +1525,7 @@ public class AccountController : Controller
  - ConfirmEmail.cshtml
  - Forget.cshtml
  - ForgetConfirmation.cshtml
- - Lockout.chtml
+ - Lockout.cshtml
  - Login.cshtml
  - Register.cshtml
  - RegisterConfirmation.cshtml
@@ -1896,10 +1904,10 @@ public class HomeController : Controller
 </div>
 
 
--- Salvar todos os arquivos, abrir o terminal e execute o projeto
-dotnet watch run
-
-
-
+-- Para a validação do jquery exibir o css de erro do bootstrap é necessário substituir as classes de erros das funções de validação. Abra os dois arquivos .js da pasta wwwroot\lib\jquery-validation-unobtrusive faça o seguinte:
+ - Pressione Ctrl+H para abrir a ferramenta de pesquisa e substituição
+ - Digite no caixa de "Find" a classe: is-invalid e na caixa de "Replace" a classe "is-invalid"
+ - Ao lado da caixa de "Replace" existem dois icones, parando o mouse em cima por um tempo mostra o nome dos botões, clique no segundo "Replace All", para fazer duas alterações no arquivo.
+ - Realize esse procedimento nos dois arquivos .js da pasta mencionada.
 
 
